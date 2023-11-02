@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Store</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="#"><img src="./assets/img/logo.png" alt=""></a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="loading"><div class="elementLoading"></div></div>
+            <div id="list"></div>
+    </main>
+    <script defer>
+    fetch('https://fakestoreapi.com/products')
+    
+
+        .then(response => response.json())
+        .then(data => {
+            const productList = document.getElementById('list');
+            const loadingElement = document.getElementById('loading');
+    
+            data.forEach(product => {
+                const productDiv = document.createElement('div');
+                loadingElement.classList.add('hide');
+                productDiv.classList.add('test');
+                
+                productDiv.innerHTML = `
+                <div class="card">
+                    <div class="card-head">
+                        <img src="${product.image}" class="card-img-top minha-imagem" alt="${product.title}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">${product.title}</h5>
+                        <p class="card-text">${product.description}</p>
+                        <p class="card-text"><strong>$${product.price}</strong></p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="produto.html?produto_id=${product.id}"class="btn">Comprar</a>  
+                    </div>
+                </div>`;
+    
+                productList.appendChild(productDiv);
+            });
+        });</script>
+</body>
+</html>

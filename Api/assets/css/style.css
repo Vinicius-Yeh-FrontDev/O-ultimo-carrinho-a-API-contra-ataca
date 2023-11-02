@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.menu ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.menu ul li{
+    display: inline;
+}
+.menu ul li a{
+    display: inline-block;
+    text-decoration: none;
+    color: #085F84;
+    padding: 1rem 2rem;
+    transition: .2s ease;
+    font-size: 1.225rem;
+}
+.menu ul li a:hover{
+    color: #28BCFC;
+}
+.menu ul li a img{
+    max-width: 2rem;
+}
+
+body{
+
+    background: url(../../assets/img/joe-woods-4Zaq5xY5M_c-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hide{
+    display: none;
+}
+.elementLoading{
+    height: 8rem;
+    width: 8rem;
+    border-radius: 100%;
+    border-top: solid #28BCFC 1rem;
+    animation: girar 1s infinite linear;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@keyframes girar {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 25rem;
+    height: 35rem;
+    text-align: center;
+    backdrop-filter: blur(1rem);
+    background-color: transparent;
+    border: solid 2px #fff;
+    margin: 1rem;
+    box-shadow: 0 0 .725rem .0 rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+}
+.card-head img{
+    max-width: 10rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 .725rem .0 rgba(0, 0, 0, 0.1);
+}
+strong{
+    color: rgb(23, 178, 23);
+}
+.card-title{
+    font-size: 1.425rem;
+}
+#list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btn{
+    padding: 1rem 2rem;
+    background-color: #28BCFC;
+    text-decoration: none;
+    border-radius: 1rem;
+    color: #fff;
+    transition: .2s ease;
+    border: none;
+}
+.btn:hover{
+    background: rgb(23, 178, 23);
+}
+
+.card-footer{
+    margin: 2rem;
+}
+.teste{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerCheckout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerCheckout div h3{
+    text-align: center;
+}
+.form{
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

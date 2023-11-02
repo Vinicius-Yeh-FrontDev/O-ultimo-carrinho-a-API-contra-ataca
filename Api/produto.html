@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Produto</title>
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="#"><img src="./assets/img/logo.png" alt=""></a></li>
+                <li><a href="./index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div id="produto"></div>
+        </div>
+    </main>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function () {
+        const url_data = new URLSearchParams(window.location.search);
+        const productId = url_data.get('produto_id');
+        fetch(`https://fakestoreapi.com/products/${productId}`)
+            .then(response => response.json())
+            .then(data => displayProduct(data));
+        });
+        function displayProduct(product) { 
+        const productContainer = document.getElementById('produto');
+        const card = document.createElement('div');
+        card.classList.add('teste');
+        card.innerHTML = `
+            <div class="card">
+                <div class="card-head">
+                    <img src="${product.image}" class="card-img-top" alt="${product.title}">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">${product.title}</h5>
+                    <p class="card-text">${product.description}</p>
+                    <p class="card-text"><strong>$${product.price}</strong></p>
+                    <a href="checkout.html?produto_id=${product.id}"> <button class="btn">Comprar</button> </a>
+                </div>
+            </div>
+        `;
+        productContainer.appendChild(card);
+        }
+    </script>
+</body>
+</html>
